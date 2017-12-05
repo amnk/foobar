@@ -14,6 +14,9 @@ spec:
       labels:
         app: {{ template "helm-chart.name" . }}
         release: {{ .Release.Name }}
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '8080'
     spec:
       containers:
         - name: {{ .Chart.Name }}
